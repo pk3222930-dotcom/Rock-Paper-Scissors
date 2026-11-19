@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSegoe UI, sans-serif;
+  color: #172033;
+  background: linear-gradient(135deg, #eef4ff 0%, #faf7ff 100%);
+}
+
+.game-card {
+  width: min(90%, 440px);
+  padding: 42px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e7eaf2;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(55, 72, 120, 0.14);
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+}
+
+.instructions {
+  margin: 0 0 28px;
+  color: #64708a;
+}
+
+form label {
+  display: block;
+  margin-bottom: 9px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.guess-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+input,
+button {
+  min-height: 48px;
+  border-radius: 10px;
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  padding: 0 14px;
+  border: 2px solid #dbe1ee;
+  outline: none;
+}
+
+input:focus {
+  border-color: #4d70e8;
+  box-shadow: 0 0 0 3px rgba(77, 112, 232, 0.12);
+}
+
+button {
+  padding: 0 18px;
+  border: 0;
+  color: white;
+  background: #4d70e8;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3d60d4;
+}
+
+.feedback {
+  min-height: 28px;
+  margin: 22px 0 6px;
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: #4d70e8;
+}
+
+.feedback.correct {
+  color: #16845b;
+}
+
+.attempts {
+  margin: 0;
+  color: #8891a4;
+}
+
+.restart-button {
+  margin-top: 20px;
+  background: #172033;
+}
+
+.restart-button[hidden] {
+  display: none;
+}
+
+@media (max-width: 440px) {
+  .game-card {
+    padding: 30px 20px;
+  }
+
+  .guess-row {
+    grid-template-columns: 1fr;
+  }
+}
