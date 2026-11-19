@@ -1,114 +1,121 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   min-height: 100vh;
   margin: 0;
   display: grid;
   place-items: center;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSegoe UI, sans-serif;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
   color: #172033;
   background: linear-gradient(135deg, #eef4ff 0%, #faf7ff 100%);
 }
 
 .game-card {
-  width: min(90%, 440px);
-  padding: 42px;
+  width: min(92%, 520px);
+  padding: 38px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   border: 1px solid #e7eaf2;
   border-radius: 20px;
   box-shadow: 0 20px 50px rgba(55, 72, 120, 0.14);
 }
 
-h1 {
-  margin: 0 0 10px;
-  font-size: 2rem;
-}
+h1 { margin: 0 0 8px; font-size: 2rem; }
+.instructions { margin: 0 0 24px; color: #64708a; }
 
-.instructions {
-  margin: 0 0 28px;
-  color: #64708a;
-}
-
-form label {
-  display: block;
-  margin-bottom: 9px;
-  font-weight: 700;
-  text-align: left;
-}
-
-.guess-row {
+.scoreboard {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  margin-bottom: 20px;
 }
 
-input,
-button {
-  min-height: 48px;
-  border-radius: 10px;
-  font: inherit;
+.scoreboard div {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f3f6fc;
 }
 
-input {
-  width: 100%;
-  padding: 0 14px;
-  border: 2px solid #dbe1ee;
-  outline: none;
+.scoreboard span { color: #69748b; font-size: 0.82rem; }
+.scoreboard strong { font-size: 1.6rem; }
+
+.battle {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
-input:focus {
-  border-color: #4d70e8;
-  box-shadow: 0 0 0 3px rgba(77, 112, 232, 0.12);
+.choice-display {
+  min-height: 82px;
+  display: grid;
+  place-content: center;
+  gap: 6px;
+  padding: 10px;
+  border: 2px solid #edf0f7;
+  border-radius: 14px;
 }
 
-button {
-  padding: 0 18px;
-  border: 0;
-  color: white;
-  background: #4d70e8;
-  font-weight: 800;
-  cursor: pointer;
-}
+.choice-display span { color: #8991a3; font-size: 0.78rem; }
+.choice-display strong { font-size: 1.05rem; }
+.versus { color: #9aa2b3; font-size: 0.75rem; font-weight: 900; }
 
-button:hover {
-  background: #3d60d4;
-}
-
-.feedback {
-  min-height: 28px;
-  margin: 22px 0 6px;
-  font-size: 1.12rem;
+.result {
+  min-height: 26px;
+  margin: 8px 0 20px;
+  font-size: 1.05rem;
   font-weight: 800;
   color: #4d70e8;
 }
 
-.feedback.correct {
-  color: #16845b;
+.result.win { color: #16845b; }
+.result.lose { color: #d34f5f; }
+.result.tie { color: #9a6817; }
+
+.move-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
-.attempts {
-  margin: 0;
-  color: #8891a4;
+.move, .reset-button {
+  min-height: 70px;
+  border: 0;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
 }
 
-.restart-button {
-  margin-top: 20px;
+.move {
+  display: grid;
+  place-content: center;
+  gap: 4px;
+  color: #172033;
+  background: #edf2ff;
+  font-size: 1.5rem;
+}
+
+.move span { font-size: 0.85rem; }
+.move:hover { background: #dde6ff; transform: translateY(-2px); }
+
+.reset-button {
+  min-height: 44px;
+  margin-top: 16px;
+  padding: 0 18px;
+  color: white;
   background: #172033;
 }
 
-.restart-button[hidden] {
-  display: none;
-}
+.reset-button:hover { background: #2d3650; }
 
 @media (max-width: 440px) {
-  .game-card {
-    padding: 30px 20px;
-  }
-
-  .guess-row {
-    grid-template-columns: 1fr;
-  }
+  .game-card { padding: 28px 18px; }
+  h1 { font-size: 1.55rem; }
+  .battle { gap: 6px; }
+  .choice-display strong { font-size: 0.86rem; }
+  .move-buttons { gap: 6px; }
 }

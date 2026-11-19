@@ -3,27 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Number Guessing Game</title>
+  <title>Rock-Paper-Scissors</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main class="game-card" aria-labelledby="game-title">
-    <h1 id="game-title">Guess the Number</h1>
-    <p class="instructions">I'm thinking of a number between <strong>1 and 100</strong>.</p>
+    <h1 id="game-title">Rock · Paper · Scissors</h1>
+    <p class="instructions">Choose your move and challenge the computer.</p>
 
-    <form id="guess-form">
-      <label for="guess-input">Enter your guess</label>
-      <div class="guess-row">
-        <input id="guess-input" type="number" min="1" max="100" required aria-describedby="feedback">
-        <button type="submit">Guess</button>
-      </div>
-    </form>
+    <section class="scoreboard" aria-label="Scoreboard">
+      <div><span>You</span><strong id="player-score">0</strong></div>
+      <div class="ties"><span>Ties</span><strong id="tie-score">0</strong></div>
+      <div><span>Computer</span><strong id="computer-score">0</strong></div>
+    </section>
 
-    <p id="feedback" class="feedback" role="status" aria-live="polite">Make your first guess!</p>
-    <p id="attempts" class="attempts">Attempts: 0</p>
-    <button id="restart-button" class="restart-button" type="button" hidden>Play Again</button>
+    <section class="battle" aria-live="polite">
+      <div class="choice-display"><span>Your move</span><strong id="player-choice">—</strong></div>
+      <div class="versus">VS</div>
+      <div class="choice-display"><span>Computer</span><strong id="computer-choice">—</strong></div>
+    </section>
+
+    <p id="result" class="result" role="status">Make your move!</p>
+
+    <div class="move-buttons" aria-label="Choose a move">
+      <button class="move" type="button" data-move="rock">✊ <span>Rock</span></button>
+      <button class="move" type="button" data-move="paper">✋ <span>Paper</span></button>
+      <button class="move" type="button" data-move="scissors">✌️ <span>Scissors</span></button>
+    </div>
+
+    <button id="reset-button" class="reset-button" type="button">Reset Game</button>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
